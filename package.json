@@ -1,0 +1,12 @@
+{
+  "name": "jsdoc-magnifier",
+  "version": "0.0.0",
+  "description": "A project to learn node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "author": "ECV M2 Dev",
+  "license": "ISC"
+}
