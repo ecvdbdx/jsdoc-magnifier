@@ -1,14 +1,14 @@
 import HTTP from "node:http";
 import Endpoint from "./Endpoint.js";
 import { joinMapJStoMarkdown } from "../index.js";
-
-const host = "localhost";
-const port = 8000;
+import env from "node:env";
+const host = env.HOST;
+const port = env.PORT;
 const endpoints = [];
 
 const requestListener = function (req, res) {
   endpoints.forEach((endpoint) => {
-    if (endpoint.path === req.url && endpoint.port === req.port) {
+    if (endpoint.path === req.url && endpoint.method === req.method) {
       endpoint.handler(req, res);
     }
   });
