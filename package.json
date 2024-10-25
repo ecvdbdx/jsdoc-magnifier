@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "npx eslint '**/*.js'"
   },
   "author": "ECV M2 Dev",
   "license": "ISC",
