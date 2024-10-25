@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "lint": "npx eslint '**/*.js'"
   },
   "author": "ECV M2 Dev",
   "license": "ISC",
