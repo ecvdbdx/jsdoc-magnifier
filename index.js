@@ -37,12 +37,6 @@ export function mapJStoMarkdown(input) {
 
 export function joinMapJStoMarkdown(input) {
   const comments = extractAllComments(input)
-  const processedComments = mapJStoMarkdown(comments)
-  return processedComments.join("\n")
-}
-
-export function joinMapJStoMarkdown(input) {
-  const comments = extractAllComments(input);
-  const processedComments = mapJStoMarkdown(comments).flat();
-  return processedComments.join("");
+  const processedComments = mapJStoMarkdown(comments).flat()
+  return processedComments.join("")
 }

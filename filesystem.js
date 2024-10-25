@@ -1,23 +1,19 @@
 import fs from "fs"
-import { mapJStoMarkdown } from "./index.js"
+import { joinMapJStoMarkdown } from "./index.js"
 
-// fs.open("input.js", "w", function (err, file) {
-//   if (err) throw err
-//   console.log("Saved!")
-// })
-
-// fs.writeFile("input.js", "Hello content!", function (err) {
-//   if (err) throw err
-//   console.log("Saved!")
-// })
-
-fs.readFile("input.js", function (err, content) {
+fs.readFile("playground/input.js", function (err, content) {
   if (err) throw err
 
   if (content) {
-    const array = new Array(content.toString())
-    console.log(array)
-    const test = mapJStoMarkdown(array)
+    const test = joinMapJStoMarkdown(content.toString())
     console.log(test)
+    createFile(test)
   }
 })
+
+function createFile(jsToMarkdown) {
+  fs.writeFile("playground/output.md", jsToMarkdown, function (err) {
+    if (err) throw err
+    console.log("File created!")
+  })
+}
