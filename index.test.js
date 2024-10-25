@@ -1,6 +1,10 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { extractAllComments, mapJStoMarkdown } from "./index.js";
+import {
+  extractAllComments,
+  mapJStoMarkdown,
+  joinMapJStoMarkdown,
+} from "./index.js";
 
 const inputWithComment = `
 /*
@@ -48,7 +52,7 @@ const outputForMultipleComments = [
   "\n  Second comment\n  ",
 ];
 
-const outputMarkdownForOneComment = [
+const arrayMdOutputForOneComment = [
   [
     "## echoString\n",
     "\n",
@@ -58,6 +62,9 @@ const outputMarkdownForOneComment = [
     " ",
   ],
 ];
+
+const finalOutputForTwoComments =
+  "## echoString\n\n@params {string} string@function echoString(string) ##   Second comment\n\n  ";
 
 describe("extractAllComments", () => {
   it("should extract one comment", () => {
@@ -80,7 +87,16 @@ describe("mapJStoMarkdown", () => {
   it("should display comment", () => {
     assert.deepEqual(
       mapJStoMarkdown(outputForOneComment),
-      outputMarkdownForOneComment
+      arrayMdOutputForOneComment
+    );
+  });
+});
+
+describe("joinMapJStoMarkdown", () => {
+  it("should return an array of joined comments", () => {
+    assert.deepEqual(
+      joinMapJStoMarkdown(inputWithMultipleComments),
+      finalOutputForTwoComments
     );
   });
 });
