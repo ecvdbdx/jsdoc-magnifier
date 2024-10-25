@@ -1,7 +1,6 @@
-//api
 import HTTP from "node:http";
-import qs from "node:querystring";
 import Endpoint from "./Endpoint.js";
+import { joinMapJStoMarkdown } from "../index.js";
 
 const host = "localhost";
 const port = 8000;
@@ -32,19 +31,10 @@ const index = new Endpoint("/", "POST", (req, res) => {
   });
 
   req.on("end", function () {
-    var post = qs.parse(body);
-    // use post['blah'], etc.
-    const ret = `processed data : ${post["data"]}`;
+    const ret = joinMapJStoMarkdown(body);
     res.setHeader("Content-Type", "plain/text");
     res.writeHead(200);
     res.end(ret);
   });
 });
 endpoints.push(index);
-
-const test = new Endpoint("/test", "GET", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.writeHead(200);
-  res.end("ok");
-});
-endpoints.push(test);
