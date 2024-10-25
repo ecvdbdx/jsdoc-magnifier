@@ -26,6 +26,8 @@ export function extractAllComments(input) {
   );
 }
 
+const error = "OH MY GOD JE BUG";
+
 export function mapJStoMarkdown(input) {
   const result = input.map((comment) => {
     const splittedComment = comment.split("\n");

@@ -5,13 +5,22 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "prepare": "husky",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "author": "ECV M2 Dev",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.13.0",
     "eslint": "^9.13.0",
-    "globals": "^15.11.0"
+    "globals": "^15.11.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
