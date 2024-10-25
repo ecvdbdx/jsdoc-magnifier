@@ -34,3 +34,10 @@ export function mapJStoMarkdown(input) {
   });
   return result;
 }
+
+export function joinMapJStoMarkdown(input) {
+  const comments = extractAllComments(input)
+  const processedComments = mapJStoMarkdown(comments)
+  return processedComments.join("\n")
+}
+
