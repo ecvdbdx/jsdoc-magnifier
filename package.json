@@ -7,7 +7,7 @@
   "scripts": {
     "test": "node --test",
     "prepare": "husky",
-    "lint": "npx eslint '**/*.js'"
+    "lint": "npx eslint \"**/*.js\""
   },
   "author": "ECV M2 Dev",
   "license": "ISC",
