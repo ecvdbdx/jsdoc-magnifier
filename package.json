@@ -8,5 +8,10 @@
     "test": "node --test"
   },
   "author": "ECV M2 Dev",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0"
+  }
 }
