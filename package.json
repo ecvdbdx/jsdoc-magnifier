@@ -2,10 +2,11 @@
   "name": "jsdoc-magnifier",
   "version": "0.0.0",
   "description": "A project to learn node",
-  "main": "index.js",
+  "main": "bin/index.js",
   "type": "module",
   "scripts": {
     "test": "node --test",
+    "start": "node --test --test-only",
     "prepare": "husky",
     "lint": "npx eslint \"**/*.js\""
   },
@@ -22,5 +23,8 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
+  },
+  "bin": {
+    "mycli": "./bin/index.js"
   }
 }
