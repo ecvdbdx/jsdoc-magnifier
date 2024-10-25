@@ -1,3 +1,4 @@
 .vscode/.server-controller-port.log
 node_modules/
 playground/output.md
+.env

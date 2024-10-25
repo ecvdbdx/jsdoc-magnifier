@@ -1,9 +1,9 @@
 import HTTP from "node:http";
 import Endpoint from "./Endpoint.js";
 import { joinMapJStoMarkdown } from "../index.js";
-import env from "node:env";
-const host = env.HOST;
-const port = env.PORT;
+
+const host = process.env.HOST;
+const port = process.env.PORT;
 const endpoints = [];
 
 const requestListener = function (req, res) {
