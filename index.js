@@ -1,12 +1,12 @@
 /** @params {string}input */
-export function detectComment(input){
-  if(!input.includes('/*')){
+export function detectComment(input) {
+  if (!input.includes('/*')) {
     return false;
   }
   return true;
 }
 
-export function extractComment(input){
+export function extractComment(input) {
   const startPattern = /\/\*/gm
   const endPattern = /\*\//gm
   const start = input.search(startPattern)
@@ -22,9 +22,7 @@ export function extractAllComments(input) {
   return input.match(pattern)?.map(item => item.replaceAll("/*", "").replaceAll("*/", "")) || [];
 }
 
-/**
- * Nom de ma fonction
- * 
- * @param {sss}
- * @dzdz 
- */
+export function mapJStoMarkdown(input) {
+  const result = ['# Commentaires\n', '\n', ...input]
+  return result
+}

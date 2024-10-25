@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { detectComment, extractComment, extractAllComments } from './index.js'
+import { extractAllComments, mapJStoMarkdown } from './index.js'
 
 const inputWithComment = `
 /*
@@ -34,14 +34,20 @@ function echoString(string)
 }
 `
 
- 
+
 const outputForOneComment = [`
 @params {string} string
 @function echoString(string)\n `]
 
 const outputForMultipleComments = [
-'\n@params {string} string\n@function echoString(string)\n ',
-'\n  Second comment\n  '
+  '\n@params {string} string\n@function echoString(string)\n ',
+  '\n  Second comment\n  '
+]
+
+const outputMarkdownForOneComment = [
+  '## Commentaires\n',
+  '\n',
+  '\n@params {string} string\n@function echoString(string)\n '
 ]
 
 describe("extractAllComments", () => {
@@ -55,5 +61,11 @@ describe("extractAllComments", () => {
 
   it("should return an empty array if no comment", () => {
     assert.deepEqual(extractAllComments(inputWithoutComment), [])
+  })
+})
+
+describe("mapJStoMarkdown", () => {
+  it("should display comment", () => {
+    assert.deepEqual(mapJStoMarkdown(outputForOneComment), outputMarkdownForOneComment)
   })
 })
