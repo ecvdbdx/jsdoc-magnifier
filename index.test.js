@@ -1,10 +1,10 @@
-import { describe, it } from "node:test"
-import assert from "node:assert/strict"
+import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
 import {
-  extractAllComments,
-  mapJStoMarkdown,
-  joinMapJStoMarkdown,
-} from "./index.js"
+    extractAllComments,
+    mapJStoMarkdown,
+    joinMapJStoMarkdown,
+} from './index.js'
 
 const inputWithComment = `
 /*
@@ -41,62 +41,65 @@ function echoString(string)
 `
 
 const outputForOneComment = [
-  `
+    `
 echoString
 @params {string} string
 @function echoString(string)\n `,
 ]
 
 const outputForMultipleComments = [
-  "\nechoString\n@params {string} string\n@function echoString(string)\n ",
-  "\n  Second comment\n  ",
+    '\nechoString\n@params {string} string\n@function echoString(string)\n ',
+    '\n  Second comment\n  ',
 ]
 
 const arrayMdOutputForOneComment = [
-  [
-    "## echoString\n",
-    "\n",
-    "",
-    "@params {string} string",
-    "@function echoString(string)",
-    " ",
-  ],
+    [
+        '## echoString\n',
+        '\n',
+        '',
+        '@params {string} string',
+        '@function echoString(string)',
+        ' ',
+    ],
 ]
 
 const finalOutputForTwoComments =
-  "## echoString\n\n@params {string} string@function echoString(string) ##   Second comment\n\n  "
+    '## echoString\n\n@params {string} string@function echoString(string) ##   Second comment\n\n  '
 
-describe("extractAllComments", () => {
-  it("should extract one comment", () => {
-    assert.deepEqual(extractAllComments(inputWithComment), outputForOneComment)
-  })
+describe('extractAllComments', () => {
+    it('should extract one comment', () => {
+        assert.deepEqual(
+            extractAllComments(inputWithComment),
+            outputForOneComment
+        )
+    })
 
-  it("should extract two comments", () => {
-    assert.deepEqual(
-      extractAllComments(inputWithMultipleComments),
-      outputForMultipleComments
-    )
-  })
+    it('should extract two comments', () => {
+        assert.deepEqual(
+            extractAllComments(inputWithMultipleComments),
+            outputForMultipleComments
+        )
+    })
 
-  it("should return an empty array if no comment", () => {
-    assert.deepEqual(extractAllComments(inputWithoutComment), [])
-  })
+    it('should return an empty array if no comment', () => {
+        assert.deepEqual(extractAllComments(inputWithoutComment), [])
+    })
 })
 
-describe("mapJStoMarkdown", () => {
-  it("should display comment", () => {
-    assert.deepEqual(
-      mapJStoMarkdown(outputForOneComment),
-      arrayMdOutputForOneComment
-    )
-  })
+describe('mapJStoMarkdown', () => {
+    it('should display comment', () => {
+        assert.deepEqual(
+            mapJStoMarkdown(outputForOneComment),
+            arrayMdOutputForOneComment
+        )
+    })
 })
 
-describe("joinMapJStoMarkdown", () => {
-  it("should return an array of joined comments", () => {
-    assert.deepEqual(
-      joinMapJStoMarkdown(inputWithMultipleComments),
-      finalOutputForTwoComments
-    )
-  })
+describe('joinMapJStoMarkdown', () => {
+    it('should return an array of joined comments', () => {
+        assert.deepEqual(
+            joinMapJStoMarkdown(inputWithMultipleComments),
+            finalOutputForTwoComments
+        )
+    })
 })
