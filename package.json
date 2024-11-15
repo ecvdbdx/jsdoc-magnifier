@@ -2,13 +2,14 @@
   "name": "jsdoc-magnifier",
   "version": "0.0.0",
   "description": "A project to learn node",
-  "main": "index.js",
+  "main": "bin/index.js",
   "type": "module",
   "bin": {
     "jsdoc-magnifier": "./cli.js"
   },
   "scripts": {
     "test": "node --test",
+    "start": "node --test --test-only",
     "prepare": "husky",
     "lint": "npx eslint \"**/*.js\"",
     "start:api": "node --env-file=.env api"
