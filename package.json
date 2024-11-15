@@ -4,6 +4,9 @@
   "description": "A project to learn node",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "jsdoc-magnifier": "./cli.js"
+  },
   "scripts": {
     "test": "node --test",
     "prepare": "husky",
