@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander'
+import { jsDocToMarkdown } from "./jsDocToMarkdown.js"
 const program = new Command()
 
 program
@@ -18,7 +19,7 @@ program
                         outputFilename = options.output
                 }
 
-
+                jsDocToMarkdown(input, outputFilename)
         });
 
 program.parse()
