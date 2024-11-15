@@ -12,7 +12,8 @@
         "prepare": "husky",
         "lint": "npx eslint \"**/*.js\"",
         "prettier": "prettier ./ --write",
-        "start:api": "node --env-file=.env api"
+        "start:api": "node --env-file=.env api",
+        "test:api": "node --env-file=.env api/index.test.js"
     },
     "author": "ECV M2 Dev",
     "license": "ISC",
@@ -30,6 +31,8 @@
         ]
     },
     "dependencies": {
-        "commander": "^12.1.0"
+        "commander": "^12.1.0",
+        "@hono/node-server": "^1.13.7",
+        "hono": "^4.6.10"
     }
 }
