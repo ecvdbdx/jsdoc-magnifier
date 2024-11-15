@@ -7,6 +7,7 @@ const port = process.env.PORT;
 const endpoints = [];
 
 const requestListener = function (req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   endpoints.forEach((endpoint) => {
     if (endpoint.path === req.url && endpoint.method === req.method) {
       endpoint.handler(req, res);
@@ -27,7 +28,7 @@ const index = new Endpoint("/", "POST", (req, res) => {
 
     // Too much POST data, kill the connection!
     // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-    if (body.length > 1e6) request.connection.destroy();
+    if (body.length > 1e6) req.connection.destroy();
   });
 
   req.on("end", function () {

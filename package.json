@@ -8,7 +8,8 @@
     "test": "node --test",
     "prepare": "husky",
     "lint": "npx eslint \"**/*.js\"",
-    "start:api": "node --env-file=.env api"
+    "start:api": "node --env-file=.env api",
+    "test:api": "node --env-file=.env api/index.test.js"
   },
   "author": "ECV M2 Dev",
   "license": "ISC",
