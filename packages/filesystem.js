@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { joinMapJStoMarkdown } from './index.js'
+import { joinMapJStoMarkdown } from './core/index.js'
 
 export function jsDocToMarkdown(fileInput, fileOutput) {
     let input
