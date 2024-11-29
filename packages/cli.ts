@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander'
-import { jsDocToMarkdown } from './jsDocToMarkdown.js'
+import { jsDocToMarkdown } from './filesystem'
 const program = new Command()
 
 program

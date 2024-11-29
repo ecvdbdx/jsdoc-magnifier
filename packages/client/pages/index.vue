@@ -43,7 +43,7 @@ const submitForm = async () => {
 
         <div class="form">
             <div class="form-group">
-                <h2>Write your js code :</h2>
+                <h2>Write your comment code :</h2>
                 <textarea v-model="formData.javascript" placeholder="write your own js code..." rows="10"></textarea>
                 <div class="form-group">
                     <button @click="submitForm" class="submit-btn">Submit</button>
