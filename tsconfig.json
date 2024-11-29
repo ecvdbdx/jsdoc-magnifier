@@ -5,12 +5,11 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
-        "lib": ["es2021"]
+        "lib": [
+            "es2021"
+        ]
     },
-    "files": [
-        "./packages/cli.ts",
-        "./packages/filesystem.ts",
-        "./packages/core/index.ts",
-        "./packages/core/index.test.ts"
+    "include": [
+        "packages/**/*.ts"
     ]
 }
