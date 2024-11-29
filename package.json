@@ -19,14 +19,16 @@
     "author": "ECV M2 Dev",
     "license": "ISC",
     "devDependencies": {
-        "@eslint/js": "^9.13.0",
+        "@eslint/js": "^9.15.0",
         "@types/node": "^22.10.1",
-        "eslint": "^9.13.0",
+        "eslint": "^9.15.0",
         "globals": "^15.11.0",
         "husky": "^9.1.6",
         "lint-staged": "^15.2.10",
         "prettier": "^3.3.3",
-        "tsx": "^4.19.2"
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.16.0"
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx}": [

@@ -2,8 +2,8 @@ import * as fs from 'fs'
 import { joinMapJStoMarkdown } from './core/index.js'
 
 export function jsDocToMarkdown(fileInput: string, fileOutput?: string): void {
-    let input: string
-    let output: string
+    let input: string = ''
+    let output: string = ''
     let result: string | null
 
     input = fileInput.split('.')[0]
