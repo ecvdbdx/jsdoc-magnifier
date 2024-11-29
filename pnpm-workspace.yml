@@ -1,4 +1,0 @@
-packages:
-  - 'packages/api'
-  - 'packages/cli'
-  - 'packages/core'

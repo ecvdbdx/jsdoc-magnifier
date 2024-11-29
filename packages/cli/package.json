@@ -1,0 +1,20 @@
+{
+	"name": "@jsdoc-magnifier/cli",
+	"version": "0.0.0",
+	"description": "A project to learn node",
+	"main": "index.js",
+	"type": "module",
+	"bin": {
+		"jsdoc-magnifier": "./cli.js"
+	},
+	"scripts": {
+		"test": "node --test",
+		"dev": "node index.ts"
+	},
+	"author": "ECV M2 Dev",
+	"license": "ISC",
+	"dependencies": {
+		"@jsdoc-magnifier/core": "workspace:*",
+		"commander": "^12.1.0"
+	}
+}

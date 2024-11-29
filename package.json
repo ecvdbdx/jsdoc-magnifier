@@ -1,45 +1,35 @@
 {
-    "name": "jsdoc-magnifier",
-    "version": "0.0.0",
-    "description": "A project to learn node",
-    "main": "index.ts",
-    "type": "module",
-    "bin": {
-        "jsdoc-magnifier": "./cli.ts"
-    },
-    "scripts": {
-        "test": "node --test",
-        "prepare": "husky",
-        "lint": "npx eslint \"**/*.ts\"",
-        "prettier": "prettier ./ --write",
-        "start:api": "tsx --env-file=.env packages/api/server.ts",
-        "dev:api": "tsx watch --env-file=.env packages/api/server.ts",
-        "test:api": "node --env-file=.env api/index.test.ts"
-    },
-    "author": "ECV M2 Dev",
-    "license": "ISC",
-    "devDependencies": {
-        "@eslint/js": "^9.15.0",
-        "@types/node": "^22.10.1",
-        "eslint": "^9.15.0",
-        "globals": "^15.11.0",
-        "husky": "^9.1.6",
-        "lint-staged": "^15.2.10",
-        "prettier": "^3.3.3",
-        "tsx": "^4.19.2",
-        "typescript": "^5.7.2",
-        "typescript-eslint": "^8.16.0"
-    },
-    "lint-staged": {
-        "*.{js,jsx,ts,tsx}": [
-            "eslint --fix"
-        ]
-    },
-    "dependencies": {
-        "@hono/node-server": "^1.13.7",
-        "commander": "^12.1.0",
-        "hono": "^4.6.10",
-        "remark": "^15.0.1",
-        "remark-html": "^16.0.1"
-    }
+	"name": "jsdoc-magnifier",
+	"version": "0.0.0",
+	"author": "ECV M2 Dev",
+	"license": "ISC",
+	"description": "A project to learn node",
+	"type": "module",
+	"scripts": {
+		"build": "pnpm -r build",
+		"test": "pnpm -r test",
+		"prepare": "husky install",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.1",
+		"@typescript-eslint/eslint-plugin": "^8.16.0",
+		"@typescript-eslint/parser": "^8.16.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint": "^9.15.0",
+		"prettier": "^3.4.1",
+		"typescript": "^5.7.2",
+		"lint-staged": "^15.2.10"
+	},
+	"dependencies": {
+		"globals": "^15.12.0",
+		"husky": "^9.1.7"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+		"**/*.{json,md,yml}": ["prettier --write"]
+	}
 }
