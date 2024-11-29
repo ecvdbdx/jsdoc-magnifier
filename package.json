@@ -2,24 +2,25 @@
     "name": "jsdoc-magnifier",
     "version": "0.0.0",
     "description": "A project to learn node",
-    "main": "index.js",
+    "main": "index.ts",
     "type": "module",
     "bin": {
-        "jsdoc-magnifier": "./cli.js"
+        "jsdoc-magnifier": "./cli.ts"
     },
     "scripts": {
         "test": "node --test",
         "prepare": "husky",
-        "lint": "npx eslint \"**/*.js\"",
+        "lint": "npx eslint \"**/*.ts\"",
         "prettier": "prettier ./ --write",
         "start:api": "tsx --env-file=.env packages/api/server.ts",
         "dev:api": "tsx watch --env-file=.env packages/api/server.ts",
-        "test:api": "node --env-file=.env api/index.test.js"
+        "test:api": "node --env-file=.env api/index.test.ts"
     },
     "author": "ECV M2 Dev",
     "license": "ISC",
     "devDependencies": {
         "@eslint/js": "^9.13.0",
+        "@types/node": "^22.10.1",
         "eslint": "^9.13.0",
         "globals": "^15.11.0",
         "husky": "^9.1.6",

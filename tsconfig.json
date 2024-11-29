@@ -4,9 +4,13 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "lib": ["es2021"]
     },
     "files": [
         "./packages/cli.ts",
+        "./packages/filesystem.ts",
+        "./packages/core/index.ts",
+        "./packages/core/index.test.ts"
     ]
 }

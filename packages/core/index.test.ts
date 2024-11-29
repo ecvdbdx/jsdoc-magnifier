@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import assert from 'node:assert/strict'
+import { strict as assert } from 'node:assert/strict'
 import {
     extractAllComments,
     mapJStoMarkdown,
@@ -89,7 +89,7 @@ describe('extractAllComments', () => {
 describe('mapJStoMarkdown', () => {
     it('should display comment', () => {
         assert.deepEqual(
-            mapJStoMarkdown(outputForOneComment),
+            mapJStoMarkdown(outputForOneComment.join('\n')),
             arrayMdOutputForOneComment
         )
     })
