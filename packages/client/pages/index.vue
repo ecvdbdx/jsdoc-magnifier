@@ -1,14 +1,31 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import {remark} from 'remark'
+import remarkHtml from 'remark-html'
 
 const formData = ref({
     javascript: '',
 })
 const responseData = ref()
+const responseDataHtml = ref()
+const responseDisplay = ref()
 const isMarkdown = ref(true)
 
 const mdToHtml = async (data: any) => {
-    console.log(data)
+    const result = await remark() 
+            .use(remarkHtml, {sanitize: false}) 
+            .process(data)
+    return result.toString()
+}
+
+const toggleFormat = async () => {
+    if (isMarkdown.value === true) {
+        responseDisplay.value = responseDataHtml.value
+        isMarkdown.value = false
+    } else {
+        responseDisplay.value = responseData.value
+        isMarkdown.value = true
+    }
 }
 
 const submitForm = async () => {
@@ -16,12 +33,13 @@ const submitForm = async () => {
         method: 'POST',
         body: formData.value.javascript,
     })
-    await mdToHtml(responseData.value)
+    responseDataHtml.value = await mdToHtml(responseData.value)
+    responseDisplay.value = responseData.value
 }
 </script>
 <template>
     <div class="container">
-        <h1>JavaScript Code Interpreter</h1>
+        <h1>JsDoc-Magnifier</h1>
 
         <div class="form">
             <div class="form-group">
@@ -39,8 +57,8 @@ const submitForm = async () => {
                         Switch to {{ isMarkdown ? 'HTML' : 'Markdown' }}
                     </button>
                 </div>
-                <textarea readonly :value="responseData" rows="10"></textarea>
-
+                <textarea v-if="isMarkdown === true" readonly :value="responseDisplay" rows="10"></textarea>
+                <div v-else v-html="responseDataHtml" />
             </div>
         </div>
 
