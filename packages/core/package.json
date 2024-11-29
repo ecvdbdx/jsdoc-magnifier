@@ -1,0 +1,13 @@
+{
+	"name": "@jsdoc-magnifier/core",
+	"version": "0.0.0",
+	"description": "A project to learn node",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "node --test",
+		"dev": "node index.ts"
+	},
+	"author": "ECV M2 Dev",
+	"license": "ISC"
+}
